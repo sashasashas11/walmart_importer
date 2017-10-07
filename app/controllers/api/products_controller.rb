@@ -12,6 +12,7 @@ module Api
     end
 
     def import
+      Wallmart::ProductImporter.new(params[:url]).delay.import
       json_success {}
     end
 
