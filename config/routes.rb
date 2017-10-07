@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api do
+    resources :product do
+      collection do
+        post :import
+      end
+      member do
+        get :filter_by_keyword
+      end
+    end
+  end
 end
